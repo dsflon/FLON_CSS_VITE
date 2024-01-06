@@ -2,7 +2,7 @@
 
 # 変数宣言
 BASE=archives
-TARGET=floncss_for_wordpress
+TARGET=floncss_for_vite
 PASSWORD="floncss" # パスワードをここで定義
 
 BASE_PATH=./${BASE}
@@ -17,7 +17,4 @@ cd ${BASE_PATH}/${TARGET}
 rm -f ${BASE_PATH}/${TARGET}.zip
 
 # 最初に wp ディレクトリを除外して圧縮
-zip -P $PASSWORD -r ${BASE_PATH}/${TARGET}.zip * .dockerignore .editorconfig .env.example .eslintignore .eslintrc.js .gitignore .htaccess .stylelintignore .stylelintrc.js -x "*wp*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"
-
-# 次に wp/wp-content/themes ディレクトリを追加
-zip -P $PASSWORD -r ${BASE_PATH}/${TARGET}.zip "wp/wp-content/themes/THEME_NAME"
+zip -P $PASSWORD -r ${BASE_PATH}/${TARGET}.zip * .dockerignore .editorconfig .eslintignore .eslintrc.cjs .gitignore .stylelintignore .stylelintrc.cjs -x "*dist*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"
