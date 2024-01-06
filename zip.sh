@@ -2,7 +2,7 @@
 
 # 変数宣言
 BASE=archives
-TARGET=floncss_for_vite
+TARGET=floncss_for_vite_v1.0.0
 PASSWORD="floncss" # パスワードをここで定義
 
 BASE_PATH=./${BASE}
