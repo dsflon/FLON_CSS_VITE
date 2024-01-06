@@ -1,0 +1,29 @@
+/* stylelint-disable*/
+/**
+ * line-height など、文字に関する数値を定義
+ */
+
+:root {
+  /**
+   * line-heightを定義
+   *
+   * @example html
+   *   <div class="lh lh:lg@md">...</div>
+   *
+   * @example css
+   *   .selector {
+   *     line-height: var(--line-height-base);
+   *   }
+   */
+  /* base line-height */
+  --line-height-base: 1.8;
+
+  /** other line-height */
+  --line-height-2xl: 2.6;
+  --line-height-xl: 2.4;
+  --line-height-lg: 2.2;
+  --line-height-md: 2;
+  --line-height-sm: 1.6;
+  --line-height-xs: 1.4;
+  --line-height-2xs: 1.2;
+}

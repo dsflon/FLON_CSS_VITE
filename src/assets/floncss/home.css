@@ -1,0 +1,16 @@
+@import url("@floncss/settings/custom-media");
+
+.home-hero {
+  background-color: var(--color-100);
+}
+
+.home-hero_inner {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-bgtest {
+  background-image: url("/assets/images/sample.jpg");
+}

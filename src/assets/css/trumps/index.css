@@ -1,8 +1,0 @@
-@import url("@src/css/settings/custom-media");
-@import url("./color/color");
-@import url("./font/font");
-@import url("./text/text");
-@import url("./gutter/gutter");
-@import url("./display/display");
-@import url("./columns/columns");
-@import url("./gap/gap"); /** column より下に配置 */

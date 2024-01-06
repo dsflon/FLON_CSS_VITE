@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import glob from 'fast-glob';
 
-const DIST_DIR = resolve(__dirname, 'public');
+const DIST_DIR = resolve(__dirname, 'dist');
 
 const SRC_PATH = resolve(__dirname, 'src');
 const ROOT_PATH = resolve(__dirname, 'src');
@@ -10,7 +10,7 @@ const ROOT_PATH = resolve(__dirname, 'src');
 const OUTPUT_PATH = resolve(DIST_DIR, ``);
 
 const HTML_ENTRIES = `${SRC_PATH}/**/*.html`;
-const CSS_ENTRIES = `${SRC_PATH}/assets/css/*.css`
+const CSS_ENTRIES = `${SRC_PATH}/assets/floncss/*.css`
 const JS_ENTRIES = `${SRC_PATH}/assets/js/*.js`;
 
 export default defineConfig({
@@ -19,17 +19,18 @@ export default defineConfig({
 	server: {
     port: 3000,
 		host: true, // IPアドレスを有効化
-    base: './public'
+    base: './dist'
 	},
 
   // index.html の場所
   root: ROOT_PATH,
 
   // 静的ファイルの場所（デフォルトでpublic）
-  publicDir: resolve(__dirname, 'static'),
+  publicDir: resolve(__dirname, 'public'),
 
   resolve: {
     alias: {
+      '@floncss': resolve(__dirname, `${SRC_PATH}/assets/floncss`),
       '@src': resolve(__dirname, `${SRC_PATH}/assets`),
     },
   },

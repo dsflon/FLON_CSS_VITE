@@ -1,0 +1,42 @@
+/**
+ * width, height などサイズに関する数値を定義
+ *
+ * ※ サイトのデザインによって適宜追加・変更してください
+ * ※ この設定値は utility class で使用されるものではありません
+ */
+:root {
+  /**
+   * width
+   *
+   * @example css
+   *   body {
+   *     max-width: var(--width-content-max);
+   *   }
+   */
+  --width-navigation: calc(270px + var(--gutter-base));
+  --width-content: calc(100vw - var(--width-navigation));
+  --width-content-min: 860px;
+  --width-content-max: 1280px;
+
+  /**
+   * height
+   *
+   * @example css
+   *   header {
+   *     height: var(--height-header);
+   *   }
+   */
+  --height-header: 60px;
+
+  /**
+   * radius
+   *
+   * @example css
+   *   .selector {
+   *     border-radius: var(--radius-md);
+   *   }
+   */
+  --radius-xl: 8px;
+  --radius-md: 5px;
+  --radius-sm: 3px;
+}
