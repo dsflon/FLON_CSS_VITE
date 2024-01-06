@@ -1,0 +1,25 @@
+@import "./layout.css";
+
+.o-separator {
+  margin-top: calc(var(--pxtorem) * 60);
+  margin-bottom: calc(var(--pxtorem) * 60);
+
+  @media (--pc) {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+}
+
+.o-inner {
+  padding-left: calc(var(--pxtorem) * 15);
+  padding-right: calc(var(--pxtorem) * 15);
+
+  @media (--pc) {
+    max-width: var(--width-content-max);
+    min-width: var(--width-content-min);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

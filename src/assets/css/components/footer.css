@@ -1,0 +1,7 @@
+.c-footer {
+  background-color: var(--color-primary);
+}
+
+.c-footer_inner {
+  padding: 10px;
+}

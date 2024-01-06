@@ -1,0 +1,13 @@
+:root {
+  /**
+   * line-height
+   */
+  --line-height-base: 1.8;
+  --line-height-2xl: 2.6;
+  --line-height-xl: 2.4;
+  --line-height-lg: 2.2;
+  --line-height-md: 2;
+  --line-height-sm: 1.6;
+  --line-height-xs: 1.4;
+  --line-height-2xs: 1.2;
+}

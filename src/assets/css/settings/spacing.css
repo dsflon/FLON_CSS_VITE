@@ -1,0 +1,27 @@
+:root {
+  /**
+   * gutter
+   * あらゆる箇所の余白に用いる
+   */
+  --gutter-base: 40px;
+  --gutter-2xl: calc(var(--gutter-base) * 5);
+  --gutter-xl: calc(var(--gutter-base) * 4);
+  --gutter-lg: calc(var(--gutter-base) * 3);
+  --gutter-md: calc(var(--gutter-base) * 2);
+  --gutter-sm: calc(var(--gutter-base) / 2);
+  --gutter-xs: calc(var(--gutter-base) / 3);
+  --gutter-2xs: calc(var(--gutter-base) / 4);
+
+  /**
+   * gap
+   * flex, grid の gap に用いる
+   */
+  --gap-base: var(--gutter-base);
+  --gap-2xl: calc(var(--gap-base) * 5);
+  --gap-xl: calc(var(--gap-base) * 4);
+  --gap-lg: calc(var(--gap-base) * 3);
+  --gap-md: calc(var(--gap-base) * 2);
+  --gap-sm: calc(var(--gap-base) / 2);
+  --gap-xs: calc(var(--gap-base) / 3);
+  --gap-2xs: calc(var(--gap-base) / 4);
+}

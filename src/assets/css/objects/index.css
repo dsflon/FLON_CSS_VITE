@@ -1,0 +1,9 @@
+/*
+ * Objects レイヤー
+ *
+ * レイアウト目的パーツやこれ以上細分化できないUIパーツなど。
+ * atomic design で言うところの Atoms や Molecules
+ */
+
+@import "./layout";
+@import "./title";

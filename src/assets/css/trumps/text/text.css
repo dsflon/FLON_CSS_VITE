@@ -1,0 +1,38 @@
+@define-mixin text $screen {
+  /* vertical-align */
+  .align\:inherit$(screen) { vertical-align: inherit !important; }
+  .align\:baseline$(screen) { vertical-align: baseline !important; }
+  .align\:sub$(screen) { vertical-align: sub !important; }
+  .align\:super$(screen) { vertical-align: super !important; }
+  .align\:text-top$(screen) { vertical-align: text-top !important; }
+  .align\:text-bottom$(screen) { vertical-align: text-bottom !important; }
+  .align\:top$(screen) { vertical-align: top !important; }
+  .align\:middle$(screen) { vertical-align: middle !important; }
+  .align\:bottom$(screen) { vertical-align: bottom !important; }
+
+  /* text-align */
+  .text\:left$(screen) { text-align: left !important; }
+  .text\:center$(screen) { text-align: center !important; }
+  .text\:right$(screen) { text-align: right !important; }
+  .text\:justify$(screen) { text-align: justify !important; }
+
+  /* line-height */
+  .lh\:none$(screen) { line-height: 1 !important; }
+  .lh$(screen) { line-height: var(--line-height-base) !important; }
+  .lh\:2xl$(screen) { line-height: var(--line-height-2xl) !important; }
+  .lh\:xl$(screen) { line-height: var(--line-height-xl) !important; }
+  .lh\:lg$(screen) { line-height: var(--line-height-lg) !important; }
+  .lh\:md$(screen) { line-height: var(--line-height-md) !important; }
+  .lh\:sm$(screen) { line-height: var(--line-height-sm) !important; }
+  .lh\:xs$(screen) { line-height: var(--line-height-xs) !important; }
+  .lh\:2xs$(screen) { line-height: var(--line-height-2xs) !important; }
+
+  /* white-space */
+  .white-space\:normal$(screen) { white-space: normal !important; }
+  .white-space\:nowrap$(screen) { white-space: nowrap !important; }
+  .white-space\:pre$(screen) { white-space: pre !important; }
+  .white-space\:pre-line$(screen) { white-space: pre-line !important; }
+  .white-space\:break-spaces$(screen) { white-space: break-spaces !important; }
+}
+
+@mixin text;

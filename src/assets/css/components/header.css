@@ -1,0 +1,7 @@
+.c-header {
+  background-color: var(--color-primary);
+}
+
+.c-header_inner {
+  padding: 10px;
+}

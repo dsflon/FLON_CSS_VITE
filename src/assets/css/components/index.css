@@ -1,0 +1,10 @@
+
+/*
+ * Components レイヤー
+ *
+ * 装飾のスタイルを持つUIパーツ。
+ * Objectsレイヤーよりも明示的なクラス名をつける。
+ */
+
+@import "./header";
+@import "./footer";
