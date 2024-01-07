@@ -1,20 +1,28 @@
 #!/bin/sh
 
-# 変数宣言
-BASE=archives
-TARGET=floncss_for_vite_v1.0.0
+# package.json があるディレクトリのパス
+FLONCSS_PATH="../css_framework"
+
+# package.json からバージョンを取得
+VERSION=$(grep '"version"' "$FLONCSS_PATH/package.json" | awk -F '"' '{print $4}')
+
+TARGET=floncss_for_vite_v${VERSION}
 PASSWORD="floncss" # パスワードをここで定義
 
-BASE_PATH=./${BASE}
+# zip出力先のパス
+TARGET_PATH=${FLONCSS_PATH}/public/archives/${VERSION}
+
+# README.mdに記載さているバージョンを更新
+sed -i '' "s/Current FlonCSS version: .*/Current FlonCSS version: $VERSION/" README.md
 
 # archivesフォルダが存在しなれば、archivesフォルダを作成する
-mkdir -p ${BASE_PATH}
+mkdir -p ${TARGET_PATH}
 
 # 対象ディレクトリまで移動する
-cd ${BASE_PATH}/${TARGET}
+cd ${TARGET_PATH}/${TARGET}
 
 # 既存のZIPファイルがあれば削除
-rm -f ${BASE_PATH}/${TARGET}.zip
+rm -f ${TARGET_PATH}/${TARGET}.zip
 
 # 最初に wp ディレクトリを除外して圧縮
-zip -P $PASSWORD -r ${BASE_PATH}/${TARGET}.zip * .dockerignore .editorconfig .eslintignore .eslintrc.cjs .gitignore .stylelintignore .stylelintrc.cjs -x "*dist*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"
+zip -P $PASSWORD -r ${TARGET_PATH}/${TARGET}.zip * .dockerignore .editorconfig .eslintignore .eslintrc.cjs .gitignore .stylelintignore .stylelintrc.cjs -x "*dist*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"

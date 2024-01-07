@@ -23,3 +23,5 @@ distフォルダにbuildファイルが生成されます。
 
 下記を参照してください。  
 https://fw.dsflon.net/
+
+Current FlonCSS version: 1.0.0
