@@ -2,20 +2,24 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import glob from 'fast-glob';
 import handlebars from 'vite-plugin-handlebars';
+import fs from 'fs-extra';
 
 // ビルド時の出力先のディレクトリ
-const DIST_DIR = resolve(__dirname, 'dist');
+const DIST_PATH = resolve(__dirname, 'dist');
 
 // ソースファイルのディレクトリ
 const SRC_PATH = resolve(__dirname, 'src');
 
-// ベースパス
-// 例えば const BASE_PATH = 'abc'; とした場合は、http://localhost:3000/abc として表示される
-const BASE_PATH = '';
+// ベースディレクトリ名
+// 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc として表示される
+const BASE_DIR = '';
 
-const HTML_ENTRIES = `${SRC_PATH}/**/*.html`;
-const CSS_ENTRIES = `${SRC_PATH}/assets/floncss/*.css`
-const JS_ENTRIES = `${SRC_PATH}/assets/js/*.js`;
+// コンポーネントディレクトリ名
+const COMPONENT_DIR = 'components';
+
+const HTML_ENTRIES = resolve(SRC_PATH, '**/*.html');
+const CSS_ENTRIES = resolve(SRC_PATH, 'assets/floncss/*.css');
+const JS_ENTRIES = resolve(SRC_PATH, 'assets/js/*.js');
 
 export default defineConfig({
 	server: {
@@ -24,11 +28,9 @@ export default defineConfig({
     base: './dist'
 	},
 
-  // index.html の場所
   root: SRC_PATH,
 
-  // ビルド後のベースパス
-  base: BASE_PATH,
+  base: BASE_DIR,
 
   // 静的ファイルの場所（デフォルトでpublic）
   publicDir: resolve(__dirname, 'public'),
@@ -45,8 +47,9 @@ export default defineConfig({
   },
 
   plugins: [
+    // components 用ディレクトリを指定
     handlebars({
-      partialDirectory: resolve(__dirname, `${SRC_PATH}/components`),
+      partialDirectory: resolve(SRC_PATH, COMPONENT_DIR),
 
       context(pagePath) {
         const pageData = {
@@ -56,10 +59,18 @@ export default defineConfig({
         return pageData[pagePath];
       },
     }),
+
+    // build 時は components 用ディレクトリは不要なので削除
+    {
+      name: 'remove-ignored-dir',
+      writeBundle() {
+        fs.removeSync(resolve(DIST_PATH, COMPONENT_DIR));
+      }
+    }
   ],
 
   build: {
-    outDir: resolve(DIST_DIR, BASE_PATH),
+    outDir: resolve(DIST_PATH, BASE_DIR),
 		emptyOutDir: true,
     modulepreload: false,
     polyfillModulePreload: false,
