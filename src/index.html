@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/floncss/global.css">
+    {{> common_meta}}
+    {{> common_css}}
     <link rel="stylesheet" href="/assets/floncss/home.css">
     <title>FlonCSS for vite</title>
   </head>
   <body>
-    <div class="home-hero">
-      <div class="home-hero_inner o-inner">
-          <h1 class="o-title_l">HERO</h1>
+    {{> header}}
+
+    <main>
+      <div class="home-hero">
+        <div class="home-hero_inner o-inner">
+            <h1 class="o-title_l">HERO</h1>
+        </div>
       </div>
-    </div>
 
-    <div class='cols mb'>
-      <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
-      <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
-      <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
-      <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
-    </div>
+      <div class='cols mb'>
+        <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
+        <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
+        <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
+        <div class="cols:6 cols:4@md cols:2@xl sample-item">cols:6<br>cols:4@md<br>cols:2@xl</div>
+      </div>
 
-    <div class="home-bgtest mb">背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br></div>
+      <div class="home-bgtest mb">背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br></div>
 
-    <a href="/test.html">> test.html</a>
+      <a href="/test.html">> test.html</a>
+    </main>
 
-    <script type="module" src="/assets/js/main.js"></script>
+    {{> footer}}
+    {{> common_js}}
   </body>
 </html>

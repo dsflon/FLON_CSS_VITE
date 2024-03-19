@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import glob from 'fast-glob';
+import handlebars from 'vite-plugin-handlebars';
 
 // ビルド時の出力先のディレクトリ
 const DIST_DIR = resolve(__dirname, 'dist');
@@ -17,8 +18,6 @@ const CSS_ENTRIES = `${SRC_PATH}/assets/floncss/*.css`
 const JS_ENTRIES = `${SRC_PATH}/assets/js/*.js`;
 
 export default defineConfig({
-  plugins: [],
-
 	server: {
     port: 3000,
 		host: true, // IPアドレスを有効化
@@ -44,6 +43,20 @@ export default defineConfig({
   css: {
     devSourcemap: true
   },
+
+  plugins: [
+    handlebars({
+      partialDirectory: resolve(__dirname, `${SRC_PATH}/components`),
+
+      context(pagePath) {
+        const pageData = {
+          '/index.html': { isHome: true },
+        };
+
+        return pageData[pagePath];
+      },
+    }),
+  ],
 
   build: {
     outDir: resolve(DIST_DIR, BASE_PATH),
