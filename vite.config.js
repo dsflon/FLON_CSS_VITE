@@ -30,7 +30,7 @@ export default defineConfig({
 
   root: SRC_PATH,
 
-  base: BASE_DIR,
+  base: BASE_DIR || undefined,
 
   // 静的ファイルの場所（デフォルトでpublic）
   publicDir: resolve(__dirname, 'public'),
@@ -64,7 +64,7 @@ export default defineConfig({
     {
       name: 'remove-ignored-dir',
       writeBundle() {
-        fs.removeSync(resolve(DIST_PATH, COMPONENT_DIR));
+        fs.removeSync(resolve(DIST_PATH, BASE_DIR, COMPONENT_DIR));
       }
     }
   ],
