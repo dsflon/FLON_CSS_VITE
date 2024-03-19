@@ -2,12 +2,15 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import glob from 'fast-glob';
 
+// ビルド時の出力先のディレクトリ
 const DIST_DIR = resolve(__dirname, 'dist');
 
+// ソースファイルのディレクトリ
 const SRC_PATH = resolve(__dirname, 'src');
-const ROOT_PATH = resolve(__dirname, 'src');
 
-const OUTPUT_PATH = resolve(DIST_DIR, ``);
+// ベースパス
+// 例えば const BASE_PATH = 'abc'; とした場合は、http://localhost:3000/abc として表示される
+const BASE_PATH = '';
 
 const HTML_ENTRIES = `${SRC_PATH}/**/*.html`;
 const CSS_ENTRIES = `${SRC_PATH}/assets/floncss/*.css`
@@ -23,7 +26,10 @@ export default defineConfig({
 	},
 
   // index.html の場所
-  root: ROOT_PATH,
+  root: SRC_PATH,
+
+  // ビルド後のベースパス
+  base: BASE_PATH,
 
   // 静的ファイルの場所（デフォルトでpublic）
   publicDir: resolve(__dirname, 'public'),
@@ -36,14 +42,12 @@ export default defineConfig({
   },
 
   css: {
-    devSourcemap: true // this one
+    devSourcemap: true
   },
 
   build: {
-    outDir: OUTPUT_PATH,
+    outDir: resolve(DIST_DIR, BASE_PATH),
 		emptyOutDir: true,
-		// manifest: true,
-		// target: 'es2018',
     modulepreload: false,
     polyfillModulePreload: false,
     sourcemap: process.env.NODE_ENV === 'development' ? 'inline' : false,
