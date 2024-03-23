@@ -18,7 +18,7 @@ block_comment_end = */
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{css,scss,html,js,jsx,json,ts,tsx,vue,yml}]
+[*.{css,scss,html,js,jsx,json,ts,tsx,vue,yml,cjs}]
 indent_style = space
 indent_size = 2
 

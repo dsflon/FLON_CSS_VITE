@@ -21,8 +21,8 @@
 }
 
 .o-title_s {
-  font-size: pxtorem(20);
-  margin-bottom: pxtorem(10);
+  font-size: calc(var(--pxtorem) * 20);
+  margin-bottom: calc(var(--pxtorem) * 10);
 
   @media (--pc) {
     font-size: 24px;
