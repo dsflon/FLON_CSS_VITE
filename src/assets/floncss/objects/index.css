@@ -5,5 +5,5 @@
  * atomic design で言うところの Atoms や Molecules
  */
 
-@import "./layout";
-@import "./title";
+@import url("./layout");
+@import url("./title");

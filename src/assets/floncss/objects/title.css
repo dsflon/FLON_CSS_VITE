@@ -1,5 +1,3 @@
-@import "./title.css";
-
 .o-title_l {
   font-size: calc(var(--pxtorem) * 26);
   margin-bottom: calc(var(--pxtorem) * 20);
