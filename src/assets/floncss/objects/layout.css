@@ -1,5 +1,3 @@
-@import "./layout.css";
-
 .o-separator {
   margin-top: calc(var(--pxtorem) * 60);
   margin-bottom: calc(var(--pxtorem) * 60);

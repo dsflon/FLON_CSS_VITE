@@ -6,5 +6,5 @@
  * Objectsレイヤーよりも明示的なクラス名をつける。
  */
 
-@import "./header";
-@import "./footer";
+@import url("./header");
+@import url("./footer");
