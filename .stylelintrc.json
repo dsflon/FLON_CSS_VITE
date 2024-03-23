@@ -1,0 +1,73 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-css-modules"
+  ],
+  "rules": {
+    "no-descending-specificity": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "define-mixin"
+        ]
+      }
+    ],
+    "no-empty-source": null,
+    "unit-allowed-list": [
+      "%",
+      "deg",
+      "em",
+      "fr",
+      "px",
+      "rem",
+      "s",
+      "vh",
+      "vmin",
+      "vmax",
+      "vw",
+      "lvh",
+      "svh",
+      "lvw",
+      "svw",
+      "dvw",
+      "dvh",
+      "dvmin",
+      "dvmax"
+    ],
+    "selector-max-type": [
+      1,
+      {
+        "ignore": [
+          "child"
+        ],
+        "ignoreTypes": [
+          "/^--.+/"
+        ]
+      }
+    ],
+    "max-nesting-depth": 4,
+    "font-family-name-quotes": "always-unless-keyword",
+    "function-url-quotes": "always",
+    "selector-attribute-quotes": "always",
+    "selector-class-pattern": null,
+    "value-no-vendor-prefix": null,
+    "property-no-vendor-prefix": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": [
+          ".*"
+        ],
+        "ignoreProperties": [
+          ".*"
+        ],
+        "ignoreFunctions": [
+          ".*"
+        ]
+      }
+    ]
+  }
+}
