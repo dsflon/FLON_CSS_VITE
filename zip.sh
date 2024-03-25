@@ -25,4 +25,4 @@ cd ${TARGET_PATH}/${TARGET}
 rm -f ${TARGET_PATH}/${TARGET}.zip
 
 # 最初に wp ディレクトリを除外して圧縮
-zip -P $PASSWORD -r ${TARGET_PATH}/${TARGET}.zip * .dockerignore .editorconfig .eslintignore .eslintrc.cjs .gitignore .stylelintignore .stylelintrc.cjs -x "*dist*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"
+zip -P $PASSWORD -r ${TARGET_PATH}/${TARGET}.zip * .dockerignore .editorconfig .prettierrc.js .eslintignore .eslintrc.cjs .gitignore .stylelintignore .stylelintrc.json -x "*dist*" "*node_modules*" "*archives*" ".DS_Store" "zip.sh"
