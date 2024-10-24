@@ -11,8 +11,8 @@ const DIST_PATH = resolve(__dirname, 'dist');
 const SRC_PATH = resolve(__dirname, 'src');
 
 // ベースディレクトリ名
-// 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc として表示される
-const BASE_DIR = 'path';
+// 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc/ として表示される
+const BASE_DIR = '';
 
 // コンポーネントディレクトリ名
 const COMPONENT_DIR = 'components';
