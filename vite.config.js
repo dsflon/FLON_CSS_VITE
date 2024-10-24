@@ -4,26 +4,43 @@ import glob from 'fast-glob';
 import handlebars from 'vite-plugin-handlebars';
 import fs from 'fs-extra';
 
-// ビルド時の出力先のディレクトリ
-const DIST_PATH = resolve(__dirname, 'dist');
+import { aliasConfig, htmlAliasConfig } from './alias.config';
 
-// ソースファイルのディレクトリ
-const SRC_PATH = resolve(__dirname, 'src');
-
-// ベースディレクトリ名
-// 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc/ として表示される
+/**
+ * ベースディレクトリ名
+ * 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc/ として表示される
+ */
 const BASE_DIR = '';
 
-// コンポーネントディレクトリ名
+/**
+ * 静的ファイルのディレクトリ
+ */
+const PUBLIC_PATH = resolve(__dirname, 'public');
+
+/**
+ * ビルド時の出力先のディレクトリ
+ */
+const DIST_PATH = resolve(__dirname, 'dist');
+
+/**
+ * ソースファイルのディレクトリ
+ */
+const SRC_PATH = resolve(__dirname, 'src');
+
+/**
+ * コンポーネントディレクトリ名
+ */
 const COMPONENT_DIR = 'components';
 
 const HTML_ENTRIES = resolve(SRC_PATH, '**/*.html');
 const CSS_ENTRIES = resolve(SRC_PATH, 'assets/floncss/*.css');
 const JS_ENTRIES = resolve(SRC_PATH, 'assets/js/*.js');
 
+const PORT = 3000;
+
 export default defineConfig({
 	server: {
-    port: 3000,
+    port: PORT,
 		host: true, // IPアドレスを有効化
     base: './dist'
 	},
@@ -33,13 +50,13 @@ export default defineConfig({
   base: BASE_DIR || undefined,
 
   // 静的ファイルの場所（デフォルトでpublic）
-  publicDir: resolve(__dirname, 'public'),
+  publicDir: PUBLIC_PATH,
 
   resolve: {
-    alias: {
-      '@floncss': resolve(__dirname, `${SRC_PATH}/assets/floncss`),
-      '@src': resolve(__dirname, `${SRC_PATH}/assets`),
-    },
+    alias: aliasConfig({
+      SRC_PATH,
+      PUBLIC_PATH
+    }),
   },
 
   css: {
@@ -58,8 +75,12 @@ export default defineConfig({
 
         return {
           ...pageData[pagePath],
-          base: BASE_DIR ? `/${BASE_DIR}` : '',
-        };
+
+          /** html で利用する alias を以下に記述 */
+          ...htmlAliasConfig({
+            BASE_DIR
+          }),
+        }
       },
     }),
 
@@ -95,7 +116,7 @@ export default defineConfig({
 					if ( /\.(ttf|otf|eot|woff|woff2|)$/.test(name ?? '') ) {
 						return 'assets/fonts/[name].[ext]';
 					}
-					if ( /\.(gif|jpeg|jpg|png|svg|webp|)$/.test(name ?? '') ) {
+					if ( /\.(gif|jpeg|jpg|png|svg|webp|ico|)$/.test(name ?? '') ) {
 						return 'assets/images/[name].[ext]';
 					}
 					if ( /\.css$/.test(name ?? '') ) {

@@ -5,11 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "cross-env vite build",
+    "build:local": "cross-env ENV=local vite build",
+    "build:stg": "cross-env ENV=staging vite build",
+    "build:prd": "cross-env ENV=production vite build",
     "preview": "vite preview",
     "lint:style": "stylelint \"**/*.css\" --ignore-path .stylelintignore"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-standard": "^17.1.0",

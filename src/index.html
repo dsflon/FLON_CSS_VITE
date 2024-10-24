@@ -3,7 +3,7 @@
   <head>
     {{> common_meta}}
     {{> common_css}}
-    <link rel="stylesheet" href="/assets/floncss/home.css">
+    <link rel="stylesheet" href="{{assets}}/floncss/home.css">
     <title>FlonCSS for vite</title>
   </head>
   <body>
@@ -24,14 +24,14 @@
       </div>
 
       <div>
-        <img src="/assets/images/sample.jpg" alt="">
+        <img src="{{assets}}/images/sample.jpg" alt="">
       </div>
 
       <div class="home-bgtest mt mb">背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br>背景画像テスト<br></div>
 
-      <a href="{{base}}/test/">> test.html</a>
+      <a href="{{uri}}/test/">> test.html</a>
       <br>
-      <a href="{{base}}/test2.html">> test2.html</a>
+      <a href="{{uri}}/test2.html">> test2.html</a>
       <br>
       <a href="https://www.yahoo.co.jp/" target="_blank">> 外部リンク</a>
     </main>
