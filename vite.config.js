@@ -12,7 +12,7 @@ const SRC_PATH = resolve(__dirname, 'src');
 
 // ベースディレクトリ名
 // 例えば const BASE_DIR = 'abc'; とした場合は、http://localhost:3000/abc として表示される
-const BASE_DIR = '';
+const BASE_DIR = 'path';
 
 // コンポーネントディレクトリ名
 const COMPONENT_DIR = 'components';
@@ -56,7 +56,10 @@ export default defineConfig({
           '/index.html': { isHome: true },
         };
 
-        return pageData[pagePath];
+        return {
+          ...pageData[pagePath],
+          base: BASE_DIR ? `/${BASE_DIR}` : '',
+        };
       },
     }),
 
@@ -66,7 +69,7 @@ export default defineConfig({
       writeBundle() {
         fs.removeSync(resolve(DIST_PATH, BASE_DIR, COMPONENT_DIR));
       }
-    }
+    },
   ],
 
   build: {
